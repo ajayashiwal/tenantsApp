@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "297253896340",
+    "project_id": "tenant-shield-9a14c",
+    "storage_bucket": "tenant-shield-9a14c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297253896340:android:144758ed582c76a4737481",
+        "android_client_info": {
+          "package_name": "com.app.tenantshield"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297253896340-2uc45o3hop76gdmr1bknhv395sesjd1e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.tenantshield",
+            "certificate_hash": "d116fb2493869420f0f0c32adf8ad19819c895b1"
+          }
+        },
+        {
+          "client_id": "297253896340-hk6tv7l2occ7otbdfj0mf04a1oc08icl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5TeoA3c3KeBl6Ce8obxQIt0RI7gEHNiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297253896340-hk6tv7l2occ7otbdfj0mf04a1oc08icl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
