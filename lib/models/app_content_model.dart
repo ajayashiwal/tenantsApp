@@ -57,7 +57,7 @@ class AppScreen {
   dynamic name;
   dynamic createdAt;
   dynamic updatedAt;
-  Text? text;
+  TextClass? text;
 
   AppScreen({this.id, this.name, this.createdAt, this.updatedAt, this.text});
 
@@ -66,7 +66,7 @@ class AppScreen {
     name = json['name'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    text = json['text'] != null ? Text.fromJson(json['text']) : null;
+    text = json['text'] != null ? TextClass.fromJson(json['text']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -82,7 +82,7 @@ class AppScreen {
   }
 }
 
-class Text {
+class TextClass {
   dynamic id;
   dynamic label;
   dynamic text;
@@ -91,7 +91,7 @@ class Text {
   dynamic createdAt;
   dynamic updatedAt;
 
-  Text(
+  TextClass(
       {this.id,
         this.label,
         this.text,
@@ -100,7 +100,7 @@ class Text {
         this.createdAt,
         this.updatedAt});
 
-  Text.fromJson(Map<String, dynamic> json) {
+  TextClass.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     label = json['label'];
     text = json['text'];
@@ -125,6 +125,7 @@ class Text {
 
 class GeneralSetting {
   dynamic id;
+  dynamic stars;
   dynamic officeLogo;
   dynamic favicon;
   dynamic appName;
@@ -142,6 +143,7 @@ class GeneralSetting {
 
   GeneralSetting(
       {this.id,
+        this.stars,
         this.officeLogo,
         this.favicon,
         this.appName,
@@ -159,6 +161,7 @@ class GeneralSetting {
 
   GeneralSetting.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    stars = json['stars'];
     officeLogo = json['office_logo'];
     favicon = json['favicon'];
     appName = json['app_name'];
@@ -178,6 +181,7 @@ class GeneralSetting {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
+    data['stars'] = stars;
     data['office_logo'] = officeLogo;
     data['favicon'] = favicon;
     data['app_name'] = appName;

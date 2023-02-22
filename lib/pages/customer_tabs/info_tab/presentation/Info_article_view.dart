@@ -180,6 +180,7 @@ Future download(String url) async {
   var status=await Permission.storage.request();
   if(status.isGranted){
     final baseStorage=await getApplicationDocumentsDirectory();
+
     await FlutterDownloader.enqueue(url: url, savedDir: baseStorage.path,
         saveInPublicStorage: true,
         showNotification: true, // show download progress in status bar (for Android)

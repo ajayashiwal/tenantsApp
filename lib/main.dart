@@ -19,8 +19,6 @@ import 'package:tenants_shield_project/utils/app_strings.dart';
 import 'tenants_localizations.dart';
 import 'package:flutter/services.dart';
 
-import 'widgets/app_life_cycle_state.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

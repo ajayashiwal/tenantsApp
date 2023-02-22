@@ -102,6 +102,8 @@ abstract class AppDimensions {
   static EdgeInsets margin18_0_0_18 = EdgeInsets.only(top: 18,bottom: 18);
   static EdgeInsets margin0_20_20_5 = EdgeInsets.only(left: 20,right: 20,bottom: 5);
   static EdgeInsets margin0_20_20_20 = EdgeInsets.only(left: 20,right: 20,bottom: 20);
+  static EdgeInsets margin10_10_20_0 =  EdgeInsets.only(left: 10,right: 10,top: 10,bottom: 10);
+
   static EdgeInsets padding2 = EdgeInsets.all(2);
   static EdgeInsets padding5 = EdgeInsets.all(5);
   static EdgeInsets padding8 = EdgeInsets.all(8);

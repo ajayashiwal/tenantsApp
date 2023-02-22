@@ -4,6 +4,9 @@ import 'dart:isolate';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
+// import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:get/get.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path_provider/path_provider.dart';
@@ -11,9 +14,16 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../../../network_api/toast.dart';
 import '../../../../utils/app_strings.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class InfoPdfController extends GetxController {
   final sampleUrl = 'http://www.africau.edu/images/default/sample.pdf';
+  final Completer<PDFViewController> pdfController = Completer<PDFViewController>();
+  int? pages = 0;
+  int? currentPage = 0;
+  bool isReady = false;
+  String errorMessage = '';
   String pdfFlePath="";
   ReceivePort port = ReceivePort();
   var argumentData = Get.arguments;
@@ -66,6 +76,20 @@ class InfoPdfController extends GetxController {
 
     FlutterDownloader.registerCallback(downloadCallback);
     super.onInit();
+  }
+
+  pdfView(String url,bool status) async{
+    print(status.toString()+"-----sj");
+    try{
+      if(Platform.isIOS){
+        await launchUrl(Uri.parse(url),mode: status ? LaunchMode.inAppWebView:LaunchMode.externalApplication);
+      }
+      else{
+        await launchUrl(Uri.parse(url),mode: status ? LaunchMode.inAppWebView:LaunchMode.externalApplication);
+      }
+    } on Exception{
+      EasyLoading.showError('Error while loading');
+    }
   }
   //
   // @override

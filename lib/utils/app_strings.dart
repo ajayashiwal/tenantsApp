@@ -207,5 +207,7 @@ abstract class AppStrings {
   static String enterTheEmailAddress = "enterTheEmailAddress";
   static String projectStages = "projectStages";
   static String viewFiles = "viewFiles";
+  static String expertAttorneyAndSuperVisors = "expertAttorneyAndSuperVisors";
+  static String reliableAndLeadingCompanies = "reliableAndLeadingCompanies";
 
 }

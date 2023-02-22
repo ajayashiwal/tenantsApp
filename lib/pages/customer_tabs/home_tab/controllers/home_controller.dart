@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tenants_shield_project/navigation/app_route_maps.dart';
 import 'package:tenants_shield_project/pages/customer_tabs/dashboard_bar/dashboard_bar_view.dart';
 import 'package:tenants_shield_project/widgets/notifcation_calback.dart';
+import '../../../../models/app_content_model.dart';
 import '../../../../models/message_list_model.dart';
 import '../../../../models/project_stages_model.dart';
 import '../../../../network_api/api_interface.dart';
@@ -28,6 +29,7 @@ class HomePageController extends GetxController implements ApiInterface, Notific
   // ignore: non_constant_identifier_names
   int STEPS = 5;
   final pageController = PageController();
+
   ScrollController scrollController=ScrollController();
   final NetworkUtil networkUtil = NetworkUtil();
   bool isLoading = false;
@@ -51,6 +53,7 @@ class HomePageController extends GetxController implements ApiInterface, Notific
   String? apiType;
   static const messageList = "messageList";
   static const projectStagesList = "projectStagesList";
+  static const appContentApiText = "appContentApiText";
 
   @override
   void onInit() {
@@ -160,6 +163,8 @@ class HomePageController extends GetxController implements ApiInterface, Notific
           finishedCount = projectStagesModel.data!.stages!.where((c) => c.status=="Finished").length;
           startedCount = projectStagesModel.data!.stages!.where((c) => c.status=="Started").length;
           pendingCount = projectStagesModel.data!.stages!.where((c) => c.status=="Pending").length;
+
+
 
       }
 

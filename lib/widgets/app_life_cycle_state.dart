@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tenants_shield_project/network_api/const.dart';
@@ -11,22 +12,30 @@ class LifeCycleController extends SuperController implements ApiInterface{
 
   @override
   void onDetached() {
-    print("onDetached");
+    if (kDebugMode) {
+      print("onDetached");
+    }
   }
 
   @override
   void onInactive() {
-    print("onInactive");
+    if (kDebugMode) {
+      print("onInactive");
+    }
   }
 
   @override
   void onPaused() {
-    print("onPaused");
+    if (kDebugMode) {
+      print("onPaused");
+    }
   }
 
   @override
   void onResumed() {
-    print("onResumed");
+    if (kDebugMode) {
+      print("onResumed");
+    }
     updateOneSignalToken();
   }
 

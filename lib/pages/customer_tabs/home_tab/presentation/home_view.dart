@@ -381,8 +381,6 @@ class HomePageView extends StatelessWidget {
                                           Duration dateDiff=currentDate.difference(startingDate);
                                           String parsentage22= (double.parse(((dateDiff.inDays/dateDifference)*100).round().toStringAsFixed(0))).toStringAsFixed(0);
                                           double parsentage33=double.parse(parsentage22)/100;
-                                          print("parsentage22....${parsentage22}");
-                                          print("parsentage33....${parsentage33}");
                                           int listSize = 0;
                                           int restValue = 0;
                                           if (controller.projectStagesModel.data!.taskInProgress![index].completeUsers!.length > 4) {

@@ -5,7 +5,6 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   connectivity_plus_windows
   network_info_plus_windows
-  syncfusion_pdfviewer_windows
   url_launcher_windows
 )
 

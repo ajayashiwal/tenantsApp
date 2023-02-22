@@ -135,7 +135,7 @@ class LoginPageView extends StatelessWidget{
                                     controller.argumentData[0][AppStrings.type]!=AppStrings.lawayer?SizedBox(height: AppDimensions.forty):SizedBox(height: AppDimensions.zero,),
                                     controller.argumentData[0][AppStrings.type]!=AppStrings.lawayer? ActionButtonWidget(
                                         onTap: (){
-                                          connected==false?Container(): AppRouteMaps.goToRegistrationPage1();
+                                          connected==false?Container(): AppRouteMaps.goToRegistrationPage1("");
                                         },
                                         text:  TenantsLocalizations.of(context)!.find(AppStrings.RegisterAsNewTenant)
                                     ):Container(),

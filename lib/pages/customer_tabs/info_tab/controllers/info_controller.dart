@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,6 +16,8 @@ import '../../../../utils/app_strings.dart';
 
 class InfoPageController extends GetxController implements ApiInterface{
 
+
+
   bool isLoading = false;
   InfoListModel infoListModel=InfoListModel();
   final NetworkUtil networkUtil = NetworkUtil();
@@ -22,7 +26,6 @@ class InfoPageController extends GetxController implements ApiInterface{
   @override
   void onInit() {
     Get.put(LifeCycleController());
-
     if(infoListModel.data==null){
       infoListApi("");
     }
@@ -59,7 +62,6 @@ class InfoPageController extends GetxController implements ApiInterface{
     update();
     infoListApi(text);
   }
-
 
 
   @override
@@ -99,10 +101,7 @@ class InfoPageController extends GetxController implements ApiInterface{
             );
             value.setString("infoMessageId","");
             break;
-
           }
-
-
         }
       }
       });

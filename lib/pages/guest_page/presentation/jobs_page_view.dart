@@ -36,6 +36,7 @@ class JobsPageView extends StatelessWidget {
                     padding: AppDimensions.padding20,
                     child: Column(
                       children: [ // ignore: unnecessary_null_comparison
+                        // ignore: unnecessary_null_comparison
                         if(controller.appContentModel!=null)
                           if(controller.appContentModel.data!=null)
                             HtmlWidget(

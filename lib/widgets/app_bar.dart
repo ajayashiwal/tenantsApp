@@ -106,6 +106,23 @@ backIcon(context){
       )
   );
 }
+backIconWithWhite(context){
+  return AppBar(
+      elevation: 0,
+      centerTitle: false,
+      backgroundColor: AppColors.whiteColor,
+      titleSpacing: 0,
+      leading: InkWell(
+        onTap: (){
+          Get.back();
+        },
+        child: Padding(
+          padding: AppDimensions.margin18_0_0_18,
+          child: Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.backIcon)),
+        ),
+      )
+  );
+}
 
 title(String title,context){
   return AppBar(
@@ -127,25 +144,28 @@ title(String title,context){
             transition: Transition.fadeIn,
           );
       },
-        child: Text(title,style: AppThemeStyles.black16),
+        child: Padding(
+          padding: const EdgeInsets.only(right: 30),
+          child: Text(title,style: AppThemeStyles.black16),
+        ),
     ),
       titleSpacing: 0,
 
-      leading: InkWell(
-        onTap: (){
-          Get.offAll(() => DashBoardBarView(
-            isSelected: 2,
-          ),
-            binding: DashBoardPageBinding(),
-            transition: Transition.fadeIn,
-
-          );
-          },
-        child: Padding(
-          padding:AppDimensions.margin18_0_0_18,
-          child: Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.backIcon)),
-        ),
-      )
+      // leading: InkWell(
+      //   onTap: (){
+      //     Get.offAll(() => DashBoardBarView(
+      //       isSelected: 2,
+      //     ),
+      //       binding: DashBoardPageBinding(),
+      //       transition: Transition.fadeIn,
+      //
+      //     );
+      //     },
+      //   child: Padding(
+      //     padding:AppDimensions.margin18_0_0_18,
+      //     child: Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.backIcon)),
+      //   ),
+      // )
 
 
   );

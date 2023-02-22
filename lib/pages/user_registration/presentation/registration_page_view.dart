@@ -102,22 +102,62 @@ class RegistrationPageView extends StatelessWidget {
                                                       ),
                                                     ),
                                                     SizedBox(height: AppDimensions.ten),
-                                                    // ignore: deprecated_member_use
-                                                    FlatButton.icon(
-                                                      icon: Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.cameraIcon),height: AppDimensions.twentyTwo,width: AppDimensions.twentyTwo),
-                                                      onPressed:(){
-                                                        controller.getImage(ImageSource.camera);
-                                                      },
-                                                      label:  Text(TenantsLocalizations.of(context)!.find(AppStrings.fromCamera),style: AppThemeStyles.blue14),
+                                                    Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: [
+                                                        InkWell(
+                                                          onTap: (){
+                                                            controller.getImage(ImageSource.camera);
+                                                          },
+                                                          child: Padding(
+                                                            padding: AppDimensions.margin10_10_20_0,
+                                                            child: Row(
+                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                              children: [
+                                                                Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.cameraIcon),height: AppDimensions.twentyTwo,width: AppDimensions.twentyTwo),
+                                                                SizedBox(width: AppDimensions.twenty),
+                                                                Text(TenantsLocalizations.of(context)!.find(AppStrings.fromCamera),style: AppThemeStyles.blue14),
+
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        InkWell(
+                                                          onTap: (){
+                                                            controller.getImage(ImageSource.gallery);
+                                                          },
+                                                          child: Padding(
+                                                            padding: AppDimensions.margin10_10_20_0,
+                                                            child: Row(
+                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                              children: [
+                                                                Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.galleryIcon),height: AppDimensions.twentyTwo,width: AppDimensions.twentyTwo),
+                                                                SizedBox(width: AppDimensions.twenty),
+                                                                Text(TenantsLocalizations.of(context)!.find(AppStrings.fromImageGallery),style: AppThemeStyles.blue14),
+
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+
+                                                      ],
                                                     ),
                                                     // ignore: deprecated_member_use
-                                                    FlatButton.icon(
-                                                      icon: Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.galleryIcon),height: AppDimensions.twentyTwo,width: AppDimensions.twentyTwo),
-                                                      onPressed: (){
-                                                        controller.getImage(ImageSource.gallery);
-                                                        },
-                                                      label:  Text(TenantsLocalizations.of(context)!.find(AppStrings.fromImageGallery),style: AppThemeStyles.blue14),
-                                                    ),
+                                                    // FlatButton.icon(
+                                                    //   icon: Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.cameraIcon),height: AppDimensions.twentyTwo,width: AppDimensions.twentyTwo),
+                                                    //   onPressed:(){
+                                                    //     controller.getImage(ImageSource.camera);
+                                                    //   },
+                                                    //   label:  Text(TenantsLocalizations.of(context)!.find(AppStrings.fromCamera),style: AppThemeStyles.blue14),
+                                                    // ),
+                                                    // ignore: deprecated_member_use
+                                                    // FlatButton.icon(
+                                                    //   icon: Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.galleryIcon),height: AppDimensions.twentyTwo,width: AppDimensions.twentyTwo),
+                                                    //   onPressed: (){
+                                                    //     controller.getImage(ImageSource.gallery);
+                                                    //     },
+                                                    //   label:  Text(TenantsLocalizations.of(context)!.find(AppStrings.fromImageGallery),style: AppThemeStyles.blue14),
+                                                    // ),
                                                     SizedBox(height: AppDimensions.ten),
                                                   ],
                                                 )),
@@ -143,7 +183,6 @@ class RegistrationPageView extends StatelessWidget {
                                       ),
                                     ],
                                   )),
-
                               SizedBox(height: AppDimensions.ten),
                               TextFormField(
                                 controller: controller.projectCodeController,
@@ -180,10 +219,11 @@ class RegistrationPageView extends StatelessWidget {
                                     ),
                                     suffixIcon: InkWell(
                                         onTap: (){
+                                          // print("controller.number..A${controller.number.trim()}B");
                                           projectCodePopUPDialogs(
                                               TenantsLocalizations.of(context)!.find(AppStrings.whatIsAProjectCode),
-                                              TenantsLocalizations.of(context)!.find(AppStrings.projectCodeDes),
-                                              TenantsLocalizations.of(context)!.find(AppStrings.contactNo)
+                                              controller.messageData,
+                                              controller.number.trim()
                                           );
                                         },
                                         child: Image.asset(AssetsBase.quetionMarkIcon,color: AppColors.blueColor,height: AppDimensions.twenty,width: AppDimensions.twenty)),
@@ -591,7 +631,7 @@ class RegistrationPageView extends StatelessWidget {
     }
   }
   // show  messages for project code popup
-  void projectCodePopUPDialogs(String title,String message,String contactNo) {
+  void projectCodePopUPDialogs(String title,String messages,String contactNo) {
     Get.dialog(
       barrierDismissible: false,
       AlertDialog(
@@ -617,12 +657,15 @@ class RegistrationPageView extends StatelessWidget {
                 child:
                 InkWell(
                   onTap: (){
-                    _makePhoneCall("tel:$contactNo");
+                    // print("contactNo.toString().replaceFirst(RegExp(r'^0+'), "")}...${contactNo.toString().replaceFirst(RegExp(r'^0+'), "")}}");
+                    //  _makePhoneCall("tel:${"972${contactNo.replaceFirst(RegExp(r'^0+'), "")}"}");
+
+                    _makePhoneCall("tel:${contactNo}");
                   },
                   child: RichText(
                     textAlign: TextAlign.center,
                       text:  TextSpan(
-                          text: message,
+                          text: "${messages} :",
                           style: AppThemeStyles.black16,
                           children:  [
                             TextSpan(

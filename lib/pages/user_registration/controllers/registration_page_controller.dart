@@ -41,11 +41,22 @@ class RegistrationPageController extends GetxController implements ApiInterface{
   final formKey = GlobalKey<FormState>();
   RegisterModel registerModel=RegisterModel();
   bool isLoading = false;
+  var argumentData = Get.arguments;
+  String messageData="";
+  String number="";
+
 
 
   // api type and variables
   String? apiType;
   static const sendOtp = "sendOtp";
+  @override
+  void onInit() {
+    messageData=argumentData[0]["messageData"].split(":")[0];
+    number=argumentData[0]["messageData"].split(":").last;
+    super.onInit();
+
+  }
 
 
 

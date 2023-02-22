@@ -19,6 +19,7 @@ class LawyerHomePageController extends GetxController implements ApiInterface{
   String? projectName;
   String? projectId;
   var message="";
+
   List<String> projectsList = [];
   List<int> projectsIdList = [];
   List<Projects> projectsListData = [];

@@ -35,22 +35,63 @@ import '../appstyle/app_theme_styles.dart';
                ),
              ),
              SizedBox(height: AppDimensions.ten),
+             // Column(
+             //   crossAxisAlignment: CrossAxisAlignment.start,
+             //   children: [
+             //     InkWell(
+             //       onTap: (){
+             //         controller.getImage(ImageSource.camera);
+             //       },
+             //       child: Padding(
+             //         padding: AppDimensions.margin10_10_20_0,
+             //         child: Row(
+             //           mainAxisAlignment: MainAxisAlignment.start,
+             //           children: [
+             //             Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.cameraIcon),height: AppDimensions.twentyTwo,width: AppDimensions.twentyTwo),
+             //             SizedBox(width: AppDimensions.twenty),
+             //             Text(TenantsLocalizations.of(context)!.find(AppStrings.fromCamera),style: AppThemeStyles.blue14),
+             //
+             //           ],
+             //         ),
+             //       ),
+             //     ),
+             //     InkWell(
+             //       onTap: (){
+             //         controller.getImage(ImageSource.gallery);
+             //       },
+             //       child: Padding(
+             //         padding: AppDimensions.margin10_10_20_0,
+             //         child: Row(
+             //           mainAxisAlignment: MainAxisAlignment.start,
+             //           children: [
+             //             Image.asset(TenantsLocalizations.of(context)!.find(AppStrings.galleryIcon),height: AppDimensions.twentyTwo,width: AppDimensions.twentyTwo),
+             //             SizedBox(width: AppDimensions.twenty),
+             //             Text(TenantsLocalizations.of(context)!.find(AppStrings.fromImageGallery),style: AppThemeStyles.blue14),
+             //
+             //           ],
+             //         ),
+             //       ),
+             //     ),
+             //
+             //   ],
+             // ),
+
              // ignore: deprecated_member_use
-             FlatButton.icon(
-               icon: cameraIcon,
-               onPressed:(){
-                 cameraOnTap;
-               },
-               label:  Text(cameraText,style: AppThemeStyles.blue14),
-             ),
+             // FlatButton.icon(
+             //   icon: cameraIcon,
+             //   onPressed:(){
+             //     cameraOnTap;
+             //   },
+             //   label:  Text(cameraText,style: AppThemeStyles.blue14),
+             // ),
              // ignore: deprecated_member_use
-             FlatButton.icon(
-               icon: galleryIcon,
-               onPressed: (){
-                 galleryOnTap;
-               },
-               label:  Text(galleryText,style: AppThemeStyles.blue14),
-             ),
+             // FlatButton.icon(
+             //   icon: galleryIcon,
+             //   onPressed: (){
+             //     galleryOnTap;
+             //   },
+             //   label:  Text(galleryText,style: AppThemeStyles.blue14),
+             // ),
              SizedBox(height: AppDimensions.ten),
            ],
          )),

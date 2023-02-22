@@ -100,7 +100,7 @@ class DeleteMessagePageView extends StatelessWidget {
                         controller.data!.description.toString(),
                         textStyle: AppThemeStyles.black14,
                       ),
-                      controller.data!.type.toString()=="New information file"? SizedBox(height: 50):Container(),
+                      controller.data!.type.toString()=="New information file"? const SizedBox(height: 50):Container(),
                       // controller.data!.type.toString()=="New information file"?Spacer():Container(),
                       controller.data!.type.toString()=="New information file"? ActionButtonWidget(
                         onTap: () async {

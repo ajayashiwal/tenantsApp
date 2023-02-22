@@ -49,6 +49,7 @@ class OtpPageController extends GetxController implements ApiInterface{
      emailForOtp=argumentData[0][AppStrings.email];
      if (kDebugMode) {
        print("version${Platform.version}");
+       print("_packageInfo.version${_packageInfo.version}");
        print("emailForOtp$emailForOtp");
        print("imagepath.....${argumentData[0][AppStrings.imageUrl]??""}");
      }

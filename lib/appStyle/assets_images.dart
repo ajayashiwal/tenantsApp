@@ -56,4 +56,7 @@ abstract class AssetsBase {
   static const String downloadIcon1 = '${baseUrl}download_icon1.png';
   static const String checkIcon = '${baseUrl}checkIcon.png';
   static const String rectangleBoxIcon = '${baseUrl}rectangleBox.png';
+  static const String rectangleImage = '${baseUrl}reactangleImage.png';
+  static const String starImage = '${baseUrl}starImage.png';
+  static const String backImage = '${baseUrl}backImage.png';
 }

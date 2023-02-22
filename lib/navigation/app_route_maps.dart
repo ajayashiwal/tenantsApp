@@ -23,14 +23,26 @@ abstract class AppRouteMaps {
       Routes.homepage,
     );
   }
-  static void goToRegistrationPage() {
+  static void goToRegistrationPage(String messageData) {
     Get.toNamed(
       Routes.registrationPage,
+      arguments: [
+        {
+          "messageData" : messageData
+
+        }
+      ]
     );
   }
-  static void goToRegistrationPage1() {
+  static void goToRegistrationPage1(String messageData) {
     Get.offNamed(
       Routes.registrationPage,
+        arguments: [
+          {
+            "messageData" : messageData
+
+          }
+        ]
     );
   }
   static void goToPrivacyPolicyPage() {
@@ -268,6 +280,7 @@ abstract class AppRouteMaps {
       String id,
       String mainType,
       String lawyerTenantType,
+      String starImage
       ) async{
     var result = await  Get.toNamed(
       Routes.closeTaskDetailsView,
@@ -277,7 +290,8 @@ abstract class AppRouteMaps {
             "type":type,
             "id":id,
             "mainType":mainType,
-            "lawyerTenantType":lawyerTenantType
+            "lawyerTenantType":lawyerTenantType,
+            "starImage":starImage
           }
         ]
     );

@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tenants_shield_project/appstyle/app_dimensions.dart';
+import 'package:tenants_shield_project/pages/customer_tabs/dashboard_bar/dashboard_bar_binding.dart';
 import 'package:tenants_shield_project/pages/customer_tabs/dashboard_bar/dashboard_bar_controller.dart';
 import 'package:tenants_shield_project/utils/app_strings.dart';
 import '../../../appstyle/app_colors.dart';
@@ -21,11 +22,20 @@ class DashBoardBarView extends StatelessWidget {
         controller.tab=isSelected!;
       }
       controller.getProfile();
-      return Container(
-        // color: AppColors.blackColor,
-        child: SafeArea(
-          bottom: true,
-          top: false,
+      return SafeArea(
+        bottom: true,
+        top: false,
+        child: WillPopScope(
+          onWillPop: ()async{
+            Get.offAll(() => DashBoardBarView(
+              isSelected: 2,
+            ),
+              binding: DashBoardPageBinding(),
+              transition: Transition.fadeIn,
+
+            );
+            return true;
+          },
           child: Scaffold(
             bottomNavigationBar:
             Container(

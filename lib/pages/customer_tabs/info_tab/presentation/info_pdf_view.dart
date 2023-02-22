@@ -1,11 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_offline/flutter_offline.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+// import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:tenants_shield_project/appstyle/app_colors.dart';
 import 'package:tenants_shield_project/pages/customer_tabs/info_tab/controllers/info_pdf_controller.dart';
 import 'package:tenants_shield_project/widgets/app_bar.dart';
@@ -25,6 +27,7 @@ class InfoPdfWebView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<InfoPdfController>(builder: (controller) {
+      // controller.last=="pdf"? controller.pdfView(controller.pdfUrl,true):controller.pdfView(controller.pdfUrl,false);
       return  Scaffold(
           bottomNavigationBar: Container(
             height: AppDimensions.eighty,
@@ -68,7 +71,14 @@ class InfoPdfWebView extends StatelessWidget {
             child: Stack(
               children: [
 
-                controller.last=="pdf"?SfPdfViewer.network(controller.pdfUrl):WebView(
+                controller.last=="pdf"?
+                const PDF(
+                  swipeHorizontal: false,
+                ).cachedFromUrl(controller.pdfUrl):
+
+                // Container():
+                // SfPdfViewer.network(controller.pdfUrl):
+                WebView(
                   initialUrl: controller.pdfUrl,
                   javascriptMode: JavascriptMode.unrestricted,
                   onWebViewCreated: controller.webController.complete,

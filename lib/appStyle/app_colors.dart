@@ -20,5 +20,6 @@ abstract class AppColors {
   static const Color lightWhiteColor1 = Color(0xFFF1F3F5);
   static const Color lightWhiteColor11 = Color(0xFFFECFAF2);
   static const Color darkGreenColor = Color(0xFFE5F8E8);
+  static const Color lightWhiteColor111= Color(0xFFE9ECEF);
   static const Color lightSkyColor = Color.fromRGBO(51, 154, 240, 0.35);
 }

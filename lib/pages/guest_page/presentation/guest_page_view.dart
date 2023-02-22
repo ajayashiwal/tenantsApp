@@ -228,7 +228,9 @@ class GuestPageView extends StatelessWidget {
                                           onTap: () {
                                             connected == false
                                                 ? Container()
-                                                : AppRouteMaps.goToRegistrationPage();
+                                                :controller.messageData.isEmpty?Container():AppRouteMaps.goToRegistrationPage(
+                                              controller.messageData
+                                            );
                                           },
                                           child: Container(
                                               height: MediaQuery.of(context).size.width/8,

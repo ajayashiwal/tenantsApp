@@ -17,6 +17,7 @@ class GuestPageController extends GetxController implements ApiInterface{
   double androidLatestVersion=0.0;
   bool showDialogAndroid=false;
   bool showDialogIos=false;
+  String messageData="";
   PackageInfo packageInfo = PackageInfo(
     appName: AppStrings.Unknown,
     packageName: AppStrings.Unknown,
@@ -113,6 +114,7 @@ class GuestPageController extends GetxController implements ApiInterface{
     appContentModel=AppContentModel.fromJson(data);
     String apiVersionAndroid = appContentModel.data!.generalSetting!.androidLatestVersion;
     String apiVersionIos = appContentModel.data!.generalSetting!.iosLatestVersion;
+    messageData=appContentModel.data!.generalSetting!.messageData.toString();
     if(apiVersionAndroid.length<4){
       apiVersionAndroid = "$apiVersionAndroid.0";
     }
